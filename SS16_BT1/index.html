@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS16_BT1</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        function isPrime(a) {
+            let flag = true;
+            for (let i = 2; i < a; i++) {
+                if (a % i == 0) {
+                    flag = false;
+                    break;
+                } else {
+                    flag = true;
+                }
+            }
+            return flag
+        }
+
+        let num = +prompt("Enter a number");
+        let checkPrime = isPrime(num);
+        if (checkPrime == true) {
+            alert(`${num} is a prime`);
+        } else if (checkPrime == false) {
+            alert(`${num} is not a prime`);
+        }
+
+        let numLimit = +prompt("Enter the number limit");
+        let primeList = [];
+        for (let i = 2; i < numLimit; i++) {
+            let check = isPrime(i);
+            if (i == 2) {
+                primeList.push(i);
+            } else if (check == true) {
+                primeList.push(i);
+            }
+        }
+
+        document.write(primeList);
+    </script>
+</body>
+
+</html>
