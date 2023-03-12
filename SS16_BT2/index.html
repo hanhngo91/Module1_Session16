@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS16_Foot&Meter</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function footToMeter(foot){
+            let meter = foot*0.305;
+            return meter;
+        }
+
+        function meterToFoot(meter){
+            let foot = meter *3.279;
+            return foot;
+        }
+
+        let f = +prompt("Enter feet");
+        let resultToMeter = footToMeter(f);
+        alert(`${f}f = ${resultToMeter}m`);
+
+
+        let m = +prompt("Enter meter");
+        let resultToFoot = meterToFoot(m);
+        alert(`${m}m = ${resultToFoot}f`)
+
+    </script>
+</body>
+</html>
