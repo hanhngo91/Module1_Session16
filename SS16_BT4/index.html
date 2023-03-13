@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra từ đối xứng</title>
+</head>
+<body>
+    <script>
+    //-----------------Cách 1--------------------------
+        // function checkPalindrome(string){
+        //     let stringLength = string.length;
+        //     for(let i=0; i<stringLength/2; i++){   //Kiểm tra qua một nửa chiều dài của chuỗi
+        //         if(string[i] !== string[stringLength-1-i]){   //Kiểm tra xem phần tử đầu tiên và cuối cùng của chuỗi có giống nhau không
+        //             return "This is not a palindrome";
+        //         }
+        //     }
+        //     return "This is a palindrome"
+        // }
+        // let string = prompt("Enter a string: ");
+        // let value = checkPalindrome(string);
+        // alert(value);
+
+    //-----------------Cách 2 (Dùng các hàm có sẵn)--------------------------
+
+        function checkPalindrome(string){
+            let arrayValues = string.split("");    //Chuyển một chuỗi thành một mảng
+            let reverseArrayValues = arrayValues.reverse();
+            let reverseString = reverseArrayValues.join("");
+                if(string == reverseString){
+                    alert("This is a palindrome");
+                    
+                }else{
+                    alert("This is not a palindrome");
+                }
+        }
+        let string = prompt("Enter a string");
+        let value = checkPalindrome(string);
+        alert(value);
+
+    </script>
+</body>
+</html>
