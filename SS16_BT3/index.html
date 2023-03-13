@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng quản lý sản phẩm</title>
+
+    <style>
+        table {
+            outline: none;
+            width: 300px;
+        }
+        input{
+            font-size: 25px;
+        }
+        button{
+            width: 80px;
+            height: 25px;
+            background-color: rgba(0, 89, 255, 0.555);
+        }
+    </style>
+</head>
+<body>
+    <h2>Add new product</h2>
+    <input type="text" id="input" placeholder="New product">
+    <button onclick="addProduct()">Add</button>
+    <h3>Dislay all the products</h3>
+    <table id="table">
+        <!-- <tr>
+            <td>Product Name</td>
+            <td><button>Edit</button></td>
+            <td><button>Delete</button></td>
+        </tr> -->
+    </table>
+    <script>
+        let listProducts = [];
+        function addProduct(){
+            let valueInput = document.getElementById("input").value;
+            listProducts.push(valueInput);
+            rederListProduct();
+        }
+        function rederListProduct(){
+            let result = "";
+            for (let i=0; i<listProducts.length; i++){
+                result += 
+                `
+                <tr>
+                <td>${listProducts[i]}</td>
+                <td><button onclick="editProduct(${i})">Edit</button></td>
+                <td><button onclick="deleteProduct(${i})">Delete</button></td>
+                </tr>
+                `
+            }
+            document.getElementById("table").innerHTML = result;
+        }
+       function deleteProduct(id){
+        listProducts.splice(id,1);
+        rederListProduct();
+       }
+
+       function editProduct(id){
+        document.getElementById("input").value=listProducts[id];
+        let valueChangeInput=prompt("Enter new product");
+        listProducts.splice(id,1,valueChangeInput);
+        rederListProduct();
+        document.getElementById("input").value = "";
+       }
+
+    </script>
+</body>
+</html>
